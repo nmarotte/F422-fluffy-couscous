@@ -1,0 +1,5 @@
+Hello everyone and welcome to our presentation about our project on Statistical Foundations of Machine Learning. Our group consists of three students from Computer Sciences : Antoine, Pierre and I, Nathan. I will start by presenting the first part of the project : Data Preprocessing. Then, Pierre will show you which model we used and finally Antoine will explain the third part about an alternative model : [TODO].
+
+Our project is about predicting if a water pump is functional, requires maintenance or is not functionnal given a plentitude of data about the pump such as its position, its name, the amount of water available, the funder, the payment type, and so on. 
+Any result with an error rate below 66% will be considered a success, since it means our data gives us enough information to make an informed decision, and not just a random one.
+Now, obviously we do not need to know for example the name of the waterpoint to decide if it is functionnal or not, so we will have to preprocess the data, that is modify or remove the columns or row that we find detrimental to the learning.
