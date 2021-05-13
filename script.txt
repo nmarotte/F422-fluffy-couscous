@@ -6,9 +6,11 @@ Now, obviously we do not need to know for example the name of the waterpoint to 
 
 First of all, we looked with our own eyes in the data and noticed that one column always had the same value. This doesn't bring us any information about the pump since we can guess it so we can simply remove the column.
 
-Then, we check the same thing but with a little more tolerance. We will look at all the columns and check the occurence of the most common value. We found out that the column num_private is 98 percent of the time the same value, so for exemple if we had a little bit less data, it would be equivalent to always having the same data. So what we did was to remove the column, we might have lost a tiny bit of precision (maybe that column could be useful for the model when it isn't sure about what decision to take) but we gain alot in the input space [todo changer la phrase]
+This can be generalized to not only 1 value but also columns which one value appear very often. With this cell we can get a dataframe ordered by the ratio of the most common value to the others. We see that the column num_private has one value appearing almost 99 percent of the time. With that information, we will assume that it appears 100 percent of the time without losing a lot of information, but this gives us an advantage by reducing the size of the input space by a bit
 
-[todo corelation between columns]
+Now we are going to look at columns pairwise because we noticed sometimes the information was incoded in two different column for exemple quantity and quantity_group. By printing the contingency table with the table command, we see that the two columns are indeed identical. This means we can remove one of the two. For some other pairs of columns, we have that one column brings less information (less possible outcomes) than the other, so we will keep the other column
+
+However this process is not very scalable since it requires looking at the table of all pairs of columns and we have a lot of that. To solve that, we can use chisq.test that will give us three parameters for the correlation between the two columns, but since we don't know a lot about chi square, we won't really touch the data only because the test said so. What we ended up doing is that when we suspected a high correlation with the chisq test, we looked at the table and decided if the removal of a column was necessary
 
 [todo explain chisq test and contingency table]
 
