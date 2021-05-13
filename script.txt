@@ -3,3 +3,16 @@ Hello everyone and welcome to our presentation about our project on Statistical 
 Our project is about predicting if a water pump is functional, requires maintenance or is not functionnal given a plentitude of data about the pump such as its position, its name, the amount of water available, the funder, the payment type, and so on. 
 Any result with an error rate below 66% will be considered a success, since it means our data gives us enough information to make an informed decision, and not just a random one.
 Now, obviously we do not need to know for example the name of the waterpoint to decide if it is functionnal or not, so we will have to preprocess the data, that is modify or remove the columns or row that we find detrimental to the learning.
+
+First of all, we looked with our own eyes in the data and noticed that one column always had the same value. This doesn't bring us any information about the pump since we can guess it so we can simply remove the column.
+
+Then, we check the same thing but with a little more tolerance. We will look at all the columns and check the occurence of the most common value. We found out that the column num_private is 98 percent of the time the same value, so for exemple if we had a little bit less data, it would be equivalent to always having the same data. So what we did was to remove the column, we might have lost a tiny bit of precision (maybe that column could be useful for the model when it isn't sure about what decision to take) but we gain alot in the input space [todo changer la phrase]
+
+[todo corelation between columns]
+
+[todo explain chisq test and contingency table]
+
+[todo explain missing value imputation]
+
+--- Pierre ---
+--- Antoine ---
