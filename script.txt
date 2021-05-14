@@ -12,9 +12,7 @@ Now we are going to look at columns pairwise because we noticed sometimes the in
 
 However this process is not very scalable since it requires looking at the table of all pairs of columns and we have a lot of that. To solve that, we can use chisq.test that will give us three parameters for the correlation between the two columns, but since we don't know a lot about chi square, we won't really touch the data only because the test said so. What we ended up doing is that when we suspected a high correlation with the chisq test, we looked at the table and decided if the removal of a column was necessary
 
-[todo explain chisq test and contingency table]
-
-[todo explain missing value imputation]
+Here, we simply replaced Not Available with unknown, creating a category for all the data in the column that is unknown. For exemple having a funder named "unknown" as an abstraction
 
 --- Pierre ---
 --- Antoine ---
