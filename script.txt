@@ -10,9 +10,27 @@ This can be generalized to not only 1 value but also columns which one value app
 
 Now we are going to look at columns pairwise because we noticed sometimes the information was incoded in two different column for exemple quantity and quantity_group. By printing the contingency table with the table command, we see that the two columns are indeed identical. This means we can remove one of the two. For some other pairs of columns, we have that one column brings less information (less possible outcomes) than the other, so we will keep the other column
 
-However this process is not very scalable since it requires looking at the table of all pairs of columns and we have a lot of that. To solve that, we can use chisq.test that will give us three parameters for the correlation between the two columns, but since we don't know a lot about chi square, we won't really touch the data only because the test said so. What we ended up doing is that when we suspected a high correlation with the chisq test, we looked at the table and decided if the removal of a column was necessary
+However this process is not very scalable since it requires looking at the table of all pairs of columns and we have a lot of that. To solve that, we can use chisq.test that will give us three parameters for the correlation between the two columns, but since we don't know a lot about chi square, we won't really touch the data only because the test said so. What we ended up doing is that when we suspected a high correlation with the chisq test, we looked at the table and decided if the removal of a column was necessary. In the following cells, we removed all the columns we deemed useless or not bringing a lot of information to the data
 
 Here, we simply replaced Not Available with unknown, creating a category for all the data in the column that is unknown. For exemple having a funder named "unknown" as an abstraction
 
+Finally, we are going to use one-hot-encoding with the dummies library to encode some columns with dummy columns to to convert text to numerical variable. We would have wanted to do the same with the funder column but there are too many funders so it makes the problem way too big
+
 --- Pierre ---
+
+For the model selection, we will first see Decision Tree, then Neural Network and then Random Forest.
+Here is our implementation of the decision tree, as we can see we get a table with the id on the left and the status on the right. We can then save and submit that file to the competition and, with the decision tree, we had at most [XXX] percent of success. The advantage of decision tree compared to neural network is that we get a glimpse of the model built. We can see how the decision is taken even though it is not realistic compared to the real world
+
+The code for all the model is mostly the same. What changes is the library used and the name of the file we saved the result in. 
+
+For Neural Network we chose to have max_it of two hundred [Pierre à toi d'écrire qqc pour expliquer ce max it et cette final value]. We get a table of the same form as the other model that we submitted to the site and got a score of [XXX] percent. This model gave us very optimistic result with a lot of the pump predicted functional but still had a decent success rate.
+
+As our third model, we also implemented random Forest, which is simply a forest of decision trees, one thousand in our case. With this model we get a success rate of [XXX] percent.
+
+Finally, for our bonus fourth model, we used Naive Bayes. That model gave us a success rate of [XXX] percent [TODO parler + du modèle ?]
+
 --- Antoine ---
+
+For the third part, we chose to work with the library [XXX]. It works in the same way as the other models and gave us a success rate of [XXX].
+
+This model gave us seventy four point zero two percent of success rate. The way this model works is [ANtoine todo]
