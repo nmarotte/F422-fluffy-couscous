@@ -1,7 +1,6 @@
 Hello everyone and welcome to our presentation about our project on Statistical Foundations of Machine Learning. Our group consists of three students from Computer Sciences : Antoine, Pierre and I, Nathan. I will start by presenting the first part of the project : Data Preprocessing. Then, Pierre will show you which model we used and finally Antoine will explain the third part about an alternative model : [TODO].
 
 Our project is about predicting if a water pump is functional, requires maintenance or is not functionnal given a plentitude of data about the pump such as its position, its name, the amount of water available, the funder, the payment type, and so on. 
-Any result with an error rate below 66% will be considered a success, since it means our data gives us enough information to make an informed decision, and not just a random one.
 Now, obviously we do not need to know for example the name of the waterpoint to decide if it is functionnal or not, so we will have to preprocess the data, that is modify or remove the columns or row that we find detrimental to the learning.
 
 First of all, we looked with our own eyes in the data and noticed that one column always had the same value. This doesn't bring us any information about the pump since we can guess it so we can simply remove the column.
@@ -14,12 +13,15 @@ However this process is not very scalable since it requires looking at the table
 
 Here, we simply replaced Not Available with unknown, creating a category for all the data in the column that is unknown. For exemple having a funder named "unknown" as an abstraction
 
-Finally, we are going to use one-hot-encoding with the dummies library to encode some columns with dummy columns to to convert text to numerical variable. We would have wanted to do the same with the funder column but there are too many funders so it makes the problem way too big
+Finally, we are going to use one-hot-encoding with the dummies library to encode some columns with dummy columns to to convert text to numerical variable. We would have wanted to do the same with the funder column but there are too many funders so it makes the problem way too big. In this step we also only keep numerical values 
 
 --- Pierre ---
 
 For the model selection, we will look at four different models. Firstly, a Decision Tree, secondly a Neural Network , thirdly a Random Forest and finally at Naive Bayes.
-Here is our implementation of the decision tree, to be able to submit our results in the competition, we need to encode our prediction in a table composed of the id and the status of the pump. To do so, after the prediction, we create a data frame which be written in a csv file and we can then submit that file to the competition. Firstly, We have used  the decision tree model considering that it is quite a simple model which have quite an simple structure to analyse. Indeed, we can see how our model is choosing his prediction by looking at the tree. For this model, we had at most 69.36 percent of success.
+
+Here is our implementation of the decision tree, to be able to submit our results in the competition, we need to encode our prediction in a table composed of the id and the status of the pump. To do so, after the prediction, we create a data frame which be written in a csv file and we can then submit that file to the competition. 
+
+Firstly, we have used  the decision tree model considering that it is quite a simple model which have quite an simple structure to analyse. Indeed, we can see how our model is choosing his prediction by looking at the tree. For this model, we had at most 69.36 percent of success.
 That was a litle succes. The big advantage of decision tree compared to neural network is that we can clearly look at what the model is doing to predict. We can see how the decision is taken even though it is not the more precise model in Machine Learning.
 
 The code for all the model is mostly the same. What changes is the library used for the training and the parameters. 
@@ -28,10 +30,16 @@ For the second models, we have used Neural Network considering that this model i
 
 For the third model, we have implemented a random Forest considering that a random forest is a forest of decision trees and that we have quite interresting results for the decision tree model. We have chosen to have one thousand in our case. With this model we get our best results of 76.43 percent.
 
-Finally, We have decide to test one more model, this bonus model was Naive Bayes. That model gave us a success rate of 61.90 percent [TODO parler + du modèle ?]
+Finally, We have decide to test one more model, this bonus model was Naive Bayes. That model gave us a success rate of 61.90 percent. This models is based on applying Bayes' theorem and the Naive part means that the classifier will assume that all columns are independent. We think that it is the reason why we got such a low success rate. The problem is too complicated for Naive Bayes and status group is probably not predicted via just one column. The model can be used to estimate the parameters necessary for classification
 
 --- Antoine ---
 
-For the third part, we chose to work with the library [XXX]. It works in the same way as the other models and gave us a success rate of [XXX].
+For the third part, we chose to work with the library Generalized Boosted Regression Models, or gbm. The syntax is the same as the other models and gave us a success rate of 74.22 percent, almost as good as our random forest
 
-This model gave us seventy four point zero two percent of success rate. The way this model works is [ANtoine todo]
+This model combines two techniques : decision tree algorithms and boosting. Boosting is a way to reduce the biais and variance in supervised learning and to convert weak learners that predict slightly better than at random into strong learners that combine all the predictions.
+
+The prediction is, unlike the other models, not in the same format as for the submissions. For each  ID we receive a number from the neighborhood of 1 to the neighborhood of 3. The closest the float is to a number, the more sure the classifier is of that prediction, and each number correspond to a status group.
+
+Now let's summarize what we saw. First we had to pre process the data since we had a lot of columns that might have been useless we made assumptions on their correlation and removed the most redundant columns based on our observations and intuition. Then we dropped the remaining text columns except for water_quality and quantity since we felt they were important, so we had to dummify them. Then we  worked with 5 differents models that brought us very differents results but random forest gave us the best one, probably because it also selects the important features for the classification.
+
+Thank you for your attention
