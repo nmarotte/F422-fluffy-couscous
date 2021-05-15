@@ -19,16 +19,16 @@ Finally, we are going to use one-hot-encoding with the dummies library to encode
 --- Pierre ---
 
 For the model selection, we will look at four different models. Firstly, a Decision Tree, secondly a Neural Network , thirdly a Random Forest and finally at Naive Bayes.
-Here is our implementation of the decision tree, to be able to submit our results in the competition, we need to encode our prediction in a table composed of the id and the status of the pump. To do so, after the prediction, we create a data frame which be written in a csv file and we can then submit that file to the competition. Firstly, We have used  the decision tree model considering that it is quite a simple model which have quite an simple structure to analyse. Indeed, we can see how our model is choosing his prediction by looking at the tree. For this model, we had at most [XXX] percent of success.
+Here is our implementation of the decision tree, to be able to submit our results in the competition, we need to encode our prediction in a table composed of the id and the status of the pump. To do so, after the prediction, we create a data frame which be written in a csv file and we can then submit that file to the competition. Firstly, We have used  the decision tree model considering that it is quite a simple model which have quite an simple structure to analyse. Indeed, we can see how our model is choosing his prediction by looking at the tree. For this model, we had at most 69.36 percent of success.
 That was a litle succes. The big advantage of decision tree compared to neural network is that we can clearly look at what the model is doing to predict. We can see how the decision is taken even though it is not the more precise model in Machine Learning.
 
 The code for all the model is mostly the same. What changes is the library used for the training and the parameters. 
 
-For the second models, we have used Neural Network considering that this model is one of the most known model of machine learning. [explain a bit more parameters]. We get a table of the same form as the other model that we submitted to the site and got a score of [XXX] percent. This model didn't gave us very good results because it is not the model, the most adapted of tasks of machine learning with factor data. It is stronger in task like image recognision. But it could give us better results with more data to train.
+For the second models, we have used Neural Network considering that this model is one of the most known model of machine learning. We get a table of the same form as the other model that we submitted to the site and got a score of 61.25 percent. This model didn't gave us very good results because it is not the model, the most adapted of tasks of machine learning with factor data. It is stronger in task like image recognision. But it could give us better results with more data to train.
 
-For the third model, we have implemented a random Forest considering that a random forest is a forest of decision trees and that we have quite interresting results for the decision tree model. We have chosen to have one thousand in our case. With this model we get our best results of [XXX] percent.
+For the third model, we have implemented a random Forest considering that a random forest is a forest of decision trees and that we have quite interresting results for the decision tree model. We have chosen to have one thousand in our case. With this model we get our best results of 76.43 percent.
 
-Finally, for our bonus fourth model, we used Naive Bayes. That model gave us a success rate of [XXX] percent [TODO parler + du modèle ?]
+Finally, We have decide to test one more model, this bonus model was Naive Bayes. That model gave us a success rate of 61.90 percent [TODO parler + du modèle ?]
 
 --- Antoine ---
 
