@@ -17,7 +17,7 @@ Finally, we are going to use one-hot-encoding with the dummies library to encode
 
 --- Pierre ---
 
-For the model selection, we will look at four different models. Firstly, a Decision Tree, secondly a Neural Network , thirdly a Random Forest and finally at Naive Bayes.
+For the model selection, we will look at four different models. Firstly, a Decision Tree, secondly a Neural Network , thirdly a Random Forest and finally a Naive Bayes.
 
 Here is our implementation of the decision tree, to be able to submit our results in the competition, we need to encode our prediction in a table composed of the id and the status of the pump. To do so, after the prediction, we create a data frame which be written in a csv file and we can then submit that file to the competition. 
 
